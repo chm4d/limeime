@@ -47,7 +47,6 @@
 
     <application
         android:allowBackup="true"
-        android:name="androidx.multidex.MultiDexApplication"
         android:backupAgent=".LIMEBackupAgent"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
@@ -58,11 +57,10 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
+            android:exported="true"
             android:name=".MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
-            android:hardwareAccelerated="true"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:hardwareAccelerated="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="com.google.android.apps.drive.DRIVE_OPEN" />
@@ -110,6 +108,7 @@
 
         <!-- LIME Services -->
         <service
+            android:exported="true"
             android:name=".LIMEService"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_INPUT_METHOD" >
@@ -139,6 +138,7 @@
             android:theme="@android:style/Theme.Translucent" />
 
         <activity
+            android:exported="true"
             android:name="com.dropbox.client2.android.AuthActivity"
             android:configChanges="orientation|keyboard"
             android:launchMode="singleTask" >
@@ -152,12 +152,6 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".ui.SetupImGoogleActivity"
-            android:label="@string/title_activity_setup_im_google"
-            android:theme="@style/Theme.AppCompat.Transparent" >
         </activity>
     </application>
 
